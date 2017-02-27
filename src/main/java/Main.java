@@ -1,6 +1,10 @@
+import entity.Libro;
 import servicios.LibroMysqlFactory;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static spark.Spark.*;
 
@@ -15,7 +19,12 @@ public class Main {
     get("/hello", (req, res) -> "Hello " +
             "World");
 
-    get("/resultados", (req, res) -> LibroMysqlFactory.obtener(req.queryParams("codigo")).getNombre());
+    get("/resultados", (req, res) -> {
+      Libro libro =  LibroMysqlFactory.obtener(req.queryParams("codigo"));
+      Map<String, Object> attributes = new HashMap<>();
+      attributes.put("libro", libro);
+      return new ModelAndView(attributes, "resultados.ftl");
+    }, new FreeMarkerEngine());
 
     /*get("/formulario", (request, response) -> {
         //Map<String, Object> attributes = new HashMap<>();

@@ -12,9 +12,7 @@
 <form method="get" action="/resultados">
     <label for="labelCodigo">Codigo</label>
     <input type="text" name="codigo" />
-
-    <input type="submit" value="Buscar">
-    
+    <input type="submit" value="Buscar" />
 </form>
 
 </body>
