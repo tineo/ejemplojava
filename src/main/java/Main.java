@@ -20,7 +20,7 @@ public class Main {
     port(8080);
     staticFileLocation("/public");
 
-    get("/hello", (req, res) -> "Hello World");
+    get("/hello", (req, res) -> "Hello World1");
 
     post("/formulario", (req, res) -> req.queryParams("nombre2"));
 
