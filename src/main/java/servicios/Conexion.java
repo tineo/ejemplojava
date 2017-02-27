@@ -5,7 +5,7 @@ import java.sql.*;
 /**
  * Created by CARLOS on 26/02/2017.
  */
-public class conexion {
+public class Conexion {
 
     private static String usuario = "root";
     private static String pass = "diana";

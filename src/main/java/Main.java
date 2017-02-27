@@ -1,15 +1,6 @@
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-import servicios.libroMysqlFactory;
+import servicios.LibroMysqlFactory;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import static spark.Spark.*;
 
@@ -24,7 +15,7 @@ public class Main {
     get("/hello", (req, res) -> "Hello " +
             "World");
 
-    get("/resultados", (req, res) -> libroMysqlFactory.obtener(req.queryParams("codigo")).getNombre());
+    get("/resultados", (req, res) -> LibroMysqlFactory.obtener(req.queryParams("codigo")).getNombre());
 
     /*get("/formulario", (request, response) -> {
         //Map<String, Object> attributes = new HashMap<>();

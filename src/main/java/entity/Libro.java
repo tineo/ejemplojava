@@ -3,7 +3,7 @@ package entity;
 /**
  * Created by CARLOS on 26/02/2017.
  */
-public class libro {
+public class Libro {
     private String id_libro;
     private String nombre;
     private String autor;

@@ -7,19 +7,19 @@ import entity.*;
 /**
  * Created by CARLOS on 26/02/2017.
  */
-public class libroMysqlFactory {
+public class LibroMysqlFactory {
 
     private static Connection miCon;
 
-    public static libro obtener(String id_libro){
+    public static Libro obtener(String id_libro){
         PreparedStatement stringStatement = null;
-        libro retornar = null;
+        Libro retornar = null;
         try{
-            miCon = conexion.getConexion();
+            miCon = Conexion.getConexion();
             stringStatement = miCon.prepareStatement("SELECT * FROM libros WHERE codlib = ?");
             stringStatement.setString(1,id_libro);
             ResultSet rs = stringStatement.executeQuery();
-            retornar = new libro();
+            retornar = new Libro();
             if(rs.next()){
                 retornar.setAutor(rs.getString("autor"));
                 retornar.setId_libro(rs.getString("codlib"));
