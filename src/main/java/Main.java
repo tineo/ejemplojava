@@ -1,5 +1,6 @@
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import servicios.libroMysqlFactory;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
 
@@ -20,23 +21,32 @@ public class Main {
     port(8080);
     staticFileLocation("/public");
 
-    get("/hello", (req, res) -> "Hello World");
+    get("/hello", (req, res) -> "Hello " +
+            "World");
 
-    post("/formulario", (req, res) -> req.queryParams("nombre2"));
+    get("/resultados", (req, res) -> libroMysqlFactory.obtener(req.queryParams("codigo")).getNombre());
 
-    get("/formulario", (request, response) -> {
+    /*get("/formulario", (request, response) -> {
         //Map<String, Object> attributes = new HashMap<>();
         //attributes.put("message", "Hello World!");
 
         return new ModelAndView(null, "form.ftl");
-    }, new FreeMarkerEngine());
+    }, new FreeMarkerEngine());*/
 
-    get("/", (request, response) -> {
+      get("/formulario", (request, response) -> {
+          //Map<String, Object> attributes = new HashMap<>();
+          //attributes.put("message", "Hello World!");
+
+          return new ModelAndView(null, "form.ftl");
+      }, new FreeMarkerEngine());
+
+
+    /*get("/", (request, response) -> {
         Map<String, Object> attributes = new HashMap<>();
         attributes.put("message", "Hello World!");
 
         return new ModelAndView(attributes, "index.ftl");
-    }, new FreeMarkerEngine());
+    }, new FreeMarkerEngine());*/
 
 
   }

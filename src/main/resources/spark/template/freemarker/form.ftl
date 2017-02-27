@@ -9,11 +9,9 @@
 </head>
 <body>
 
-<form method="get">
-    <label for="codigo1">Codigo</label>
-    <input type="text" name="codigo1" />
-    <label for="nombre2">Nombre</label>
-    <input type="text" name="nombre2" />
+<form method="get" action="/resultados">
+    <label for="labelCodigo">Codigo</label>
+    <input type="text" name="codigo" />
 
     <input type="submit" value="Buscar">
     
